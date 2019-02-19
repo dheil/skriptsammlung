@@ -17,3 +17,6 @@ List all database dumps:
 Restoring all MySQL databases from the dumps:
 
 # for i in `cat /root/dblist.txt`; do MYSQL_PWD=`cat /etc/psa/.psa.shadow` mysql -u admin < /root/mysqlbackup/"$i".sql; done
+
+
+-- credit: https://support.plesk.com/hc/en-us/articles/360003426894-How-to-backup-restore-user-s-MySQL-databases-in-Plesk-with-the-script-
