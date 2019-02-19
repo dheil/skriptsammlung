@@ -1,0 +1,19 @@
+Create a directory where backup files will be stored:
+
+# mkdir /root/mysql_dumps_all
+
+Get the list of all databases:
+
+# cd /root && plesk db -e "show databases" | grep -v -E "^Database|information_schema|performance_schema|phpmyadmin" > dblist.txt
+
+Dump all MySQL databases:
+
+# cat /root/dblist.txt | while read i; do plesk db dump "$i" > /root/mysql_dumps_all/"$i".sql; done
+
+List all database dumps:
+
+# ls -l /root/mysql_dumps_all
+
+Restoring all MySQL databases from the dumps:
+
+# for i in `cat /root/dblist.txt`; do MYSQL_PWD=`cat /etc/psa/.psa.shadow` mysql -u admin < /root/mysqlbackup/"$i".sql; done
