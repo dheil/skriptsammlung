@@ -1,0 +1,27 @@
+
+# add new user
+adduser {{username}}
+usermod -aG sudo {{username}}
+
+# testing new user permissions
+su {{username}}
+sudo ls /root
+
+
+# add ssh key to new user
+cd 
+mkdir .ssh
+cd .ssh
+nano authorized_keys
+
+# change the root password (as new user)
+sudo passwd root
+
+# prohibit ssh login for root
+nano /etc/ssh/sshd_config
+-> PermitRootLogin no
+service ssh restart
+
+# disable direct root login
+cat /dev/null > /etc/securetty
+
