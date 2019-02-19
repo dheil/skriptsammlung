@@ -1,0 +1,8 @@
+sudo apt-get update
+sudo apt-get install fail2ban
+
+# whitelist an ip
+
+## copy default conf file
+cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+
