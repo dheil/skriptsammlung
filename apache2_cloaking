@@ -1,0 +1,4 @@
+ServerTokens Prod
+ServerSignature Off
+Header unset X-Powered-By
+FileETag None
