@@ -1,0 +1,11 @@
+# set password for postgres user
+sudo -u postgres psql
+
+ALTER USER postgres PASSWORD 'myPassword';
+
+
+# adding a new superuser
+# as root:
+1. su - postgres
+2. createuser --interactive --pwprompt
+
