@@ -2,4 +2,5 @@
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-# logout / login 
+# copy dump pg database from docker
+docker exec DOCKER_CONTAINER pg_dump -U DATABASE_USER DATABASE_NAME > backup.sql
