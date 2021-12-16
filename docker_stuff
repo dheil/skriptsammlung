@@ -4,3 +4,6 @@ sudo usermod -aG docker $USER
 
 # copy dump pg database from docker
 docker exec DOCKER_CONTAINER pg_dump -U DATABASE_USER DATABASE_NAME > backup.sql
+
+# update all images by tag (thanks to @giggio found here https://gist.github.com/ColinLeverger/b87957eb2e2256646718f13d156e6982)
+docker images --format "{{.Repository}}:{{.Tag}}" | grep --invert-match '<none>' | xargs -L1 docker pull
